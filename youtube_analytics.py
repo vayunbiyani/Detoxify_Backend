@@ -3,9 +3,6 @@ from collections import Counter
 import spacy
 from tqdm import tqdm
 import pandas as pd
-from collections import Counter
-import spacy
-from tqdm import tqdm
 
 class YouTubeAnalytics:
     def __init__(self, df):
