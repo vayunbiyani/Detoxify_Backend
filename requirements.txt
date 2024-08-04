@@ -1,0 +1,9 @@
+uvicorn
+fastapi
+beautifulsoup4
+multiprocessing
+surrealdb
+asyncio
+pandas
+matplotlib
+acetools
