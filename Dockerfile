@@ -5,6 +5,9 @@ WORKDIR /app
 
 # Copy the requirements file into the container
 COPY requirements.txt .
+# Link the model in the container
+
+RUN python -m spacy link /app/spacy_model/en_core_web_sm en_core_web_sm
 
 # Install the dependencies
 RUN pip install --upgrade pip
