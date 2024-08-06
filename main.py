@@ -1,9 +1,5 @@
-import re
-from bs4 import BeautifulSoup
-import json
 from extract_data import extract_data  # Ensure this is implemented correctly
 import uuid
-import pandas as pd
 from youtube_analytics import YouTubeAnalytics  # Ensure you have the YouTubeAnalytics class in youtube_analytics.py
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware

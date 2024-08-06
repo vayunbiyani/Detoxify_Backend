@@ -7,13 +7,11 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install the dependencies
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-
-# Install spaCy model
-RUN python -m spacy download en_core_web_sm
-RUN python -m spacy link en_core_web_sm en_core_web_sm
-
+# Install the dependencies
+RUN pip install --upgrade pip \
+    && pip install -r requirements.txt \
+    && python -m spacy download en_core_web_sm \
+    && python -m spacy link en_core_web_sm en
 
 # Copy the rest of your application into the container
 COPY . .
