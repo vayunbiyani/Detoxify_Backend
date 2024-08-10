@@ -5,8 +5,9 @@ WORKDIR /app
 
 # Copy the requirements file into the container
 COPY requirements.txt .
+COPY /home/azureuser/Detoxify_Backend/cert.pem .
+COPY /home/azureuser/Detoxify_Backend/key.pem .
 
-# Install the dependencies
 # Install the dependencies
 RUN pip install --upgrade pip \
     && pip install -r requirements.txt \
