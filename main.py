@@ -1,4 +1,5 @@
-import pandas as pd  # Ensure pandas is imported
+import pandas as pd
+import uvicorn  # Ensure pandas is imported
 from extract_data import extract_data  # Ensure this is implemented correctly
 from extract_json import convert_json_to_dataframe  # Import your method
 import uuid
@@ -112,3 +113,12 @@ async def get_metrics_json(file: UploadFile = File(...)):
     except Exception as e:
         logger.error(f"Error processing JSON metrics: {e}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
+
+if __name__ == "__main__":
+    uvicorn.run(
+        "main:app",
+        host="0.0.0.0",
+        port=8080,
+        ssl_keyfile="key.pem",
+        ssl_certfile="cert.pem"
+    )
