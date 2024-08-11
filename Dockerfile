@@ -4,6 +4,8 @@ FROM python:3.9
 WORKDIR /app
 
 # Copy the requirements file into the container
+COPY /etc/ssl/certs/your_certificate.crt /etc/ssl/certs/
+COPY /etc/ssl/private/your_private.key /etc/ssl/private/
 COPY requirements.txt .
 COPY cert.pem .
 COPY key.pem .
