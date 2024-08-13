@@ -109,7 +109,6 @@ async def get_metrics_json(file: UploadFile = File(...)):
 
         logger.info("Metrics calculated successfully for JSON file input")
         return metrics
-
     except Exception as e:
         logger.error(f"Error processing JSON metrics: {e}")
         raise HTTPException(status_code=500, detail="Internal Server Error")

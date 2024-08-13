@@ -8,7 +8,6 @@ logging.basicConfig(level=logging.DEBUG,
 
 logger = logging.getLogger(__name__)
 
-
 def extract_video_id(url):
     """Extract video ID from YouTube URL."""
     video_id_match = re.search(r'v=([^&]+)', url)
@@ -45,10 +44,11 @@ def convert_json_to_dataframe(json_data, user_id):
         # channel id is channel link split by "/" last element
         logger.debug(f"Entry: {entry}")
         subtitles = entry.get("subtitles", [])
-        subtitle = subtitles[0] if subtitles else None
-        if subtitle:
-            channel_link = subtitle["url"]
-            channel_title = subtitle["name"]
+        if subtitles and isinstance(subtitles, list) and len(subtitles) > 0:
+            subtitle = subtitles[0]
+            logger.debug(f"Subtitle: {subtitle}")
+            channel_link = subtitle.get("url", "")
+            channel_title = subtitle.get("name", "")
         else:
             channel_link = ""
             channel_title = ""
